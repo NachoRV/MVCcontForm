@@ -1,0 +1,55 @@
+/*** ESTILOS DE LA PAGINA Inicio ****/
+.containerindex{
+
+  width: 100%;
+  height: 1000px;
+  text-align: center;
+   background-image: url("../img/fondo.png");
+   background-repeat: no-repeat;
+   background-size: cover;
+
+}
+
+/*** ESTILOS DE LA PAGINA IMPORTAR ****/
+.importar{
+
+margin-top: 10%;
+margin-bottom: 15%;
+
+}
+
+.divimportar{
+
+padding-top: 15px;
+pading: 5px;
+background-color: #A9A9A9;
+
+height: 200px;
+border-radius: 10px;
+text-align: center;
+
+}
+.menok{
+  margin-left: 40%;
+  margin-top: 15px;
+  color: blue;
+}
+/*** ESTILOS DE LA PAGINA TAREAS****/
+.filtros{
+  margin:10px;
+  margin-top: 15px;
+  padding: 3px;
+}
+.form-group{
+  margin: 3px;
+}
+
+.espacio{
+  margin-left: 15px !important;
+}
+/******FOOTER******/
+footer{
+background-color: black;
+text-align: center;
+color: white;
+}
