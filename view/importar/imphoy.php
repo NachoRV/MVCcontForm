@@ -1,8 +1,12 @@
 <?php
 include 'view/overall/header.php';
 include 'view/overall/nav.php'; ?>
-<h2> Fichero partes de sesion</h2>
+
 <div class="container">
+<div class="row">
+<div class="col-xs-10 col-md-4"></div>
+<h2> Fichero partes de sesion</h2>
+</div>
   <div class="row importar">
     <div class= "col-xs-1 col-md-3"></div>
     <div class= "col-xs-10 col-md-6 divimportar">
