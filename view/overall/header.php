@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Logo Nav - Start Bootstrap Template</title>
+    <title> Control de Formación</title>
 
     <script src="public/js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap core CSS -->

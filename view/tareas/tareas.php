@@ -1,13 +1,24 @@
 <?php
 include 'view/overall/header.php';
-include 'view/overall/nav.php';?>
+include 'view/overall/nav.php';
+
+if($gestor !="" || $fecha1 !="" || $fecha2!=""){?>
+<div class ="row filtros" >
+  <div class="col-xs-1 col-md-4"></div>
+<? echo "Filtors aplicados:&nbsp;</br>"; ?>
+<? echo $gestor."&nbsp;";?>
+<? echo $fecha1."&nbsp;";?>
+<? echo $fecha2."&nbsp;";?>
+</div>
+<div>
+ <?php }?>
 
 <div class ="row filtros">
   <div class="col-xs-1 col-md-1"></div>
   <div class="col-xs-10 col-md-10">
     <form class="form-inline" method="post" action="<?php echo $PHP_SELF; ?>">
        <div class="form-group">
-         <label class="" form="loc">Gestor:</label>
+         <label class="" form="loc">Gestor: &nbsp;</label>
             <select name="gestor">
                 <option value="">Selecciona un gestor </option>
                 <option value="Ana Angela Lastra Aras">Ana Angela Lastra Aras</option>
@@ -23,11 +34,11 @@ include 'view/overall/nav.php';?>
               </select>
        </div>
        <div class="form-group">
-         <label class=""for="fecha1">Fecha inicio:</label>
+         <label class=""for="fecha1">Fecha inicio:&nbsp;</label>
          <input type="date" class="form-control" name="fechainicio"  placeholder="dd-mm-AAAA">
        </div>
        <div class="form-group">
-         <label for="fecha2">Fecha Fin:</label>
+         <label for="fecha2"> al:&nbsp;</label>
          <input type="date" class="form-control" name="fechafin" placeholder="dd-mm-AAAA">
        </div>
        <button type="submit" class="btn btn-default" name="enviar">Submit</button>

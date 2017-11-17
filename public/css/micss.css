@@ -21,7 +21,7 @@ margin-bottom: 15%;
 .divimportar{
 
 padding-top: 15px;
-pading: 5px;
+padding: 5px;
 background-color: #A9A9A9;
 
 height: 200px;
@@ -35,6 +35,8 @@ text-align: center;
   color: blue;
 }
 /*** ESTILOS DE LA PAGINA TAREAS****/
+
+
 .filtros{
   margin:10px;
   margin-top: 15px;
