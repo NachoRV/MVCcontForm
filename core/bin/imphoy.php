@@ -50,36 +50,57 @@ if ($action == 'upload'){
     //  echo "</br>'.$numRows'";
 
     //extraer la informacion
-    $sql1  = 'DELETE FROM `cfpresencial`';
+
+    $sql1  = 'DELETE FROM `sesion`';
     $result1 = $con->query($sql1)
     or die ("error al borrar los  registros");
     
 
     for($i = 2;$i<=$numRows;$i++){
 
-       $localizador = $objPHPExcel->getActiveSheet()->getCell('A'.$i)->getCalculatedValue();
-       $titulo = $objPHPExcel->getActiveSheet()->getCell('B'.$i)->getCalculatedValue();
-       $fechaInicio = $objPHPExcel->getActiveSheet()->getCell('C'.$i)->getValue();
-       $fechafin = $objPHPExcel->getActiveSheet()->getCell('D'.$i)->getValue();
+       $ID_USUARIO  = $objPHPExcel->getActiveSheet()->getCell('A'.$i)->getCalculatedValue();
+       $DNI = $objPHPExcel->getActiveSheet()->getCell('B'.$i)->getCalculatedValue();
+       $Nombre = $objPHPExcel->getActiveSheet()->getCell('C'.$i)->getCalculatedValue();
+       $Correo = $objPHPExcel->getActiveSheet()->getCell('D'.$i)->getCalculatedValue();
+
+      $Sociedad = $objPHPExcel->getActiveSheet()->getCell('E'.$i)->getCalculatedValue();
+      $Bonificable = $objPHPExcel->getActiveSheet()->getCell('F'.$i)->getCalculatedValue();
+      $Accion  = $objPHPExcel->getActiveSheet()->getCell('G'.$i)->getCalculatedValue();
+      $Grupo  = $objPHPExcel->getActiveSheet()->getCell('H'.$i)->getCalculatedValue();
+      $Id_formación   = $objPHPExcel->getActiveSheet()->getCell('I'.$i)->getCalculatedValue();
+      $localizador  = $objPHPExcel->getActiveSheet()->getCell('J'.$i)->getCalculatedValue();
+      $Imparticion   = $objPHPExcel->getActiveSheet()->getCell('K'.$i)->getCalculatedValue();
+      $Tipo_Formacion  = $objPHPExcel->getActiveSheet()->getCell('L'.$i)->getCalculatedValue();
+      $Titulo_curso   = $objPHPExcel->getActiveSheet()->getCell('M'.$i)->getCalculatedValue();
+      $Objetivo   = $objPHPExcel->getActiveSheet()->getCell('N'.$i)->getCalculatedValue();
+
+      $Fecha_inicio   = $objPHPExcel->getActiveSheet()->getCell('O'.$i)->getValue();
+      $Fecha_fin  = $objPHPExcel->getActiveSheet()->getCell('P'.$i)->getValue();
+      $Horas_sesion   = $objPHPExcel->getActiveSheet()->getCell('Q'.$i)->getCalculatedValue();
+      $Duracion_formacion = $objPHPExcel->getActiveSheet()->getCell('R'.$i)->getCalculatedValue();
+      $Horas_formacion   = $objPHPExcel->getActiveSheet()->getCell('S'.$i)->getCalculatedValue();
+      $Proveedor   = $objPHPExcel->getActiveSheet()->getCell('T'.$i)->getCalculatedValue();
+      $Estado_expedient   = $objPHPExcel->getActiveSheet()->getCell('U'.$i)->getCalculatedValue();
+      $Ciudad   = $objPHPExcel->getActiveSheet()->getCell('V'.$i)->getCalculatedValue();
+      $Aula   = $objPHPExcel->getActiveSheet()->getCell('W'.$i)->getCalculatedValue();
+      $Gestor   = $objPHPExcel->getActiveSheet()->getCell('X'.$i)->getCalculatedValue();
+      $Creado   = $objPHPExcel->getActiveSheet()->getCell('Y'.$i)->getCalculatedValue();
 
       /*** TRANSFORMA LAS FECHAS DE EXCEL A php****/
 
-      $timestamp2 = PHPExcel_Shared_Date::ExcelToPHP($fechaInicio);
+      $timestamp2 = PHPExcel_Shared_Date::ExcelToPHP($Fecha_inicio);
       $fecha_php = date("Y-m-d",$timestamp2);
-      $timestamp1 = PHPExcel_Shared_Date::ExcelToPHP($fechafin);
+      $timestamp1 = PHPExcel_Shared_Date::ExcelToPHP($Fecha_fin);
       $fecha_php1 = date("Y-m-d",$timestamp1);
 
-
-      $gestor = $objPHPExcel->getActiveSheet()->getCell('E'.$i)->getCalculatedValue();
-      $lugar= $objPHPExcel->getActiveSheet()->getCell('F'.$i)->getCalculatedValue();
-      $proveedor = $objPHPExcel->getActiveSheet()->getCell('G'.$i)->getCalculatedValue();
-      $tipo = $objPHPExcel->getActiveSheet()->getCell('H'.$i)->getCalculatedValue();
-
 /**** REEMPLAZAMOS COMILLAS SIMPLES DEL TEXTO DE LOS CURSOS *****/
-      $titulo = str_replace("'"," ",$titulo);
+
+      $Titulo_curso = str_replace("'"," ",$Titulo_curso);
+      $Aula = str_replace("'"," ",$Aula);
 
 
-      $sql = "INSERT INTO `cfpresencial`(`localizador`, `Titulo del curso`,`Fecha de inicio`,`Fecha fin`,`Gestor_de_formacion`,`Lugar de la formacion`,`Proveedor`,`Tipo de formación`)VALUES ('$localizador','$titulo','$fecha_php','$fecha_php1','$gestor','$lugar','$proveedor','$tipo')";
+      $sql = "INSERT INTO  `sesion`(`ID_USUARIO`, `DNI`, `Nombre`, `Correo`, `Sociedad`, `Bonificable`, `Accion`, `Grupo`, `Id_formación`, `localizador`, `Imparticion`, `Tipo_Formacion`, `Titulo_curso`, `Objetivo`, `Estado_formacion`, `Fecha_inicio`, `Fecha_fin`, `Horas_sesion`, `Duracion_formacion`, `Horas_formacion`, `Proveedor`, `Estado_expedient`, `Ciudad`, `Aula`, `Gestor`, `Creado`) 
+      VALUES ('$ID_USUARIO','$DNI',' $Nombre','$Correo','$Sociedad','$Bonificable','$Accion','$Grupo','$Id_formación','$localizador','$Imparticion','$Tipo_Formacion','$Titulo_curso','$Objetivo','$fecha_php','$fecha_php1','$Horas_sesion','$Duracion_formacion','$Proveedor','$Estado_expedient','$Ciudad','$Aula','$Gestor','$Gestor','$Creado')";
       //$sql = "INSERT INTO `cfpresencial`(`localizador`,`Titulo del curso`)VALUES ('$localizador','$titulo')";
       $result = $con->query($sql)
       or die ("error al insertar los registros");
