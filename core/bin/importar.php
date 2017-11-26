@@ -21,7 +21,7 @@ if ($action == 'upload'){
     /* COPIAMOS EL ERCHIVO AL servidor*/
     
 
-   /* if (copy($_FILES['excel']['tmp_name'],$nombreArchivo)){
+     if (copy($_FILES['excel']['tmp_name'],$nombreArchivo)){
 
         echo '<span class= "menok">Archivo Cargado Con Éxito</span>';
 
@@ -29,7 +29,7 @@ if ($action == 'upload'){
 
         echo 'Error Al Cargar el Archivo';
 
-    }*/
+    }
 
 
 

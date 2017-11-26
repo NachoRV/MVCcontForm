@@ -18,16 +18,16 @@ if ($action == 'upload'){
     $tipo = $_FILES['excel']['type'];//RECOJEMOS EL TIPO
 
 
-    /* COPIAMOS EL ERCHIVO AL servidor*/
+    /* COPIAMOS EL ERCHIVO AL servidor */
     if (copy($_FILES['excel']['tmp_name'],$nombreArchivo)){
 
-        echo '<span class= "menok">Archivo Cargado Con Éxito</span>';
+        echo '<span class= "menok">Archivo Cargado Con Éxito</span></br>';
 
     }else{
 
         echo 'Error Al Cargar el Archivo';
 
-    }
+    } 
 
 
  //cargamos el documento EN EL OBJETO $objPHPExcel
@@ -74,10 +74,10 @@ if ($action == 'upload'){
       $Titulo_curso   = $objPHPExcel->getActiveSheet()->getCell('M'.$i)->getCalculatedValue();
       $Objetivo   = $objPHPExcel->getActiveSheet()->getCell('N'.$i)->getCalculatedValue();
 
-      $Fecha_inicio   = $objPHPExcel->getActiveSheet()->getCell('O'.$i)->getValue();
-      $Fecha_fin  = $objPHPExcel->getActiveSheet()->getCell('P'.$i)->getValue();
-      $Horas_sesion   = $objPHPExcel->getActiveSheet()->getCell('Q'.$i)->getCalculatedValue();
-      $Duracion_formacion = $objPHPExcel->getActiveSheet()->getCell('R'.$i)->getCalculatedValue();
+      $Fecha_inicio   = $objPHPExcel->getActiveSheet()->getCell('P'.$i)->getValue();
+      $Fecha_fin  = $objPHPExcel->getActiveSheet()->getCell('Q'.$i)->getValue();
+      $Horas_sesion   = $objPHPExcel->getActiveSheet()->getCell('R'.$i)->getCalculatedValue();
+      $Duracion_formacion = $objPHPExcel->getActiveSheet()->getCell('S'.$i)->getCalculatedValue();
       $Horas_formacion   = $objPHPExcel->getActiveSheet()->getCell('S'.$i)->getCalculatedValue();
       $Proveedor   = $objPHPExcel->getActiveSheet()->getCell('T'.$i)->getCalculatedValue();
       $Estado_expedient   = $objPHPExcel->getActiveSheet()->getCell('U'.$i)->getCalculatedValue();
@@ -99,14 +99,14 @@ if ($action == 'upload'){
       $Aula = str_replace("'"," ",$Aula);
 
 
-      $sql = "INSERT INTO  `sesion`(`ID_USUARIO`, `DNI`, `Nombre`, `Correo`, `Sociedad`, `Bonificable`, `Accion`, `Grupo`, `Id_formación`, `localizador`, `Imparticion`, `Tipo_Formacion`, `Titulo_curso`, `Objetivo`, `Estado_formacion`, `Fecha_inicio`, `Fecha_fin`, `Horas_sesion`, `Duracion_formacion`, `Horas_formacion`, `Proveedor`, `Estado_expedient`, `Ciudad`, `Aula`, `Gestor`, `Creado`) 
-      VALUES ('$ID_USUARIO','$DNI',' $Nombre','$Correo','$Sociedad','$Bonificable','$Accion','$Grupo','$Id_formación','$localizador','$Imparticion','$Tipo_Formacion','$Titulo_curso','$Objetivo','$fecha_php','$fecha_php1','$Horas_sesion','$Duracion_formacion','$Proveedor','$Estado_expedient','$Ciudad','$Aula','$Gestor','$Gestor','$Creado')";
-      //$sql = "INSERT INTO `cfpresencial`(`localizador`,`Titulo del curso`)VALUES ('$localizador','$titulo')";
+      $sql = "INSERT INTO  `sesion`(`ID_USUARIO`, `DNI`, `Nombre`, `Correo`, `Sociedad`, `Bonificable`, `Accion`, `Grupo`, `Id_formación`, `localizador`, `Imparticion`, `Tipo_Formacion`, `Titulo_curso`, `Objetivo`, `Fecha_inicio`, `Fecha_fin`, `Horas_sesion`, `Duracion_formacion`, `Horas_formacion`, `Proveedor`, `Estado_expedient`, `Ciudad`, `Aula`, `Gestor`, `Creado`) 
+      VALUES ('$ID_USUARIO','$DNI','$Nombre','$Correo','$Sociedad','$Bonificable','$Accion','$Grupo','$Id_formación','$localizador','$Imparticion','$Tipo_Formacion','$Titulo_curso','$Objetivo','$fecha_php','$fecha_php1','$Horas_sesion','$Duracion_formacion','$Horas_formacion','$Proveedor','$Estado_expedient','$Ciudad','$Aula','$Gestor','$Creado')";
+     
       $result = $con->query($sql)
       or die ("error al insertar los registros");
      
 
-      //echo "$localizador', '$titulo', '$fecha_php', '$fecha_php1', '$gestor', '$lugar', '$proveedor', '$tipo''</br>";
+      //echo "$ID_USUARIO','$DNI','$Nombre','$Correo','$Sociedad','$Bonificable','$Accion','$Grupo','$Id_formación','$localizador','$Imparticion','$Tipo_Formacion','$Titulo_curso','$Objetivo','$fecha_php','$fecha_php1','$Horas_sesion','$Duracion_formacion','$Horas_formacion','$Proveedor','$Estado_expedient','$Ciudad','$Aula','$Gestor','$Creado'</br>";
 
 
   }
