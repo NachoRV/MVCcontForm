@@ -46,15 +46,16 @@ if($gestor !="" || $fecha1 !="" || $fecha2!=""){?>
  </div>
  <div class="col-xs-1 col-md-1"></div>
 </div>
-
+<div class="row">
+<<div class="col-xs-12 col-md-10">
  <table class="table table-striped">
   <thead>
     <tr>
-      <th>Localizador</th>
+      <th>Sesión</th>
       <th>Título</th>
-      <th>Fecha Inicio</th>
-      <th>Fecha Fin</th>
-      <th>Gestor de Formación</th>
+      <th>Fch. Inicio</th>
+      <th>Fch. Fin</th>
+      <th>Gestor</th>
       <th>lugar</th>
       <th>Proveedor</th>
 
@@ -62,8 +63,8 @@ if($gestor !="" || $fecha1 !="" || $fecha2!=""){?>
       <th>Pet. Monta</th>
       <th>Acceso</th>
       <th>Orange Trainer</th>
-      <th>Envio Documentación</th>
-      <th>Recibida Documentación</th>
+      <th>Env. Doc.</th>
+      <th>Rcb Doc.</th>
     </tr>
   </thead>
   <tbody>
@@ -98,5 +99,6 @@ if($gestor !="" || $fecha1 !="" || $fecha2!=""){?>
   ?>
  </tbody>
  </table>
-
+ </div>
+ </div>
 <?php include 'view/overall/footer.php'; ?>

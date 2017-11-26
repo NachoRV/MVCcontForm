@@ -22,7 +22,7 @@
             <li class="dropdown">
              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Convocatoria<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a  href="?view=importar">Importar</a></li>
+              <!--<li><a  href="?view=importar">Importar</a></li>-->
               <li><a  href="?view=hoy">Hoy</a></li>
               <li><a  href="?view=tareas">Tareas</a></li>
             </ul>

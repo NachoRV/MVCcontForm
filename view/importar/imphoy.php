@@ -4,8 +4,10 @@ include 'view/overall/nav.php'; ?>
 
 <div class="container">
 <div class="row">
-<div class="col-xs-10 col-md-4"></div>
-<h2> Fichero partes de sesion</h2>
+<div class= "col-xs-1 col-md-4"></div>
+  <div class="col-xs-10 col-md-4">
+  <h2> Fichero partes de sesion</h2></div>
+  <div class= "col-xs-1 col-md-4"></div>
 </div>
   <div class="row importar">
     <div class= "col-xs-1 col-md-3"></div>

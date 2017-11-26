@@ -86,7 +86,7 @@ if ($action == 'upload'){
       $Gestor   = $objPHPExcel->getActiveSheet()->getCell('X'.$i)->getCalculatedValue();
       $Creado   = $objPHPExcel->getActiveSheet()->getCell('Y'.$i)->getCalculatedValue();
 
-      /*** TRANSFORMA LAS FECHAS DE EXCEL A php****/
+      /*** TRANSFORMA LAS FECHAS DE EXCEL A php ****/
 
       $timestamp2 = PHPExcel_Shared_Date::ExcelToPHP($Fecha_inicio);
       $fecha_php = date("Y-m-d",$timestamp2);
