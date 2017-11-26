@@ -29,7 +29,7 @@ $recdoc = trim(strtoupper($_POST["Recibuda_doc"]));
   or die ("Error en la consulta");
   $tareasConvocatoria = $resultado_sel->fetch_assoc();
 
-  echo $tareasConvocatoria['locSesion'];
+  //  echo $tareasConvocatoria['locSesion'];
 
   if($tareasConvocatoria['locSesion']==1){
     $accion = "UP";

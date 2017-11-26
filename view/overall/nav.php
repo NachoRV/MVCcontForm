@@ -18,6 +18,11 @@
                 <b class="caret"></b>
               </a>
             </li>
+            <li class="nav-item ">
+              <a class="" href="?view=documentacion"> Documentacion&nbsp;&nbsp;
+                <b class="caret"></b>
+              </a>
+            </li>
 
             <li class="dropdown">
              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Convocatoria<span class="caret"></span></a>

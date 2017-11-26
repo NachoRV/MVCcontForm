@@ -50,7 +50,7 @@ include 'view/overall/nav.php';
             </select>
          </div>
          <div class="form-group">
-           <label for="pwd">Recibuda doc:</label>
+           <label for="pwd">Recibida doc:</label>
 
            <select name="Recibuda_doc" class="form-control">
                 <option value="<?= $datosConvocatoria['Recibuda doc']?>" style="display: none;"><?= $datosConvocatoria['Recibuda doc']?></option>

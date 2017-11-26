@@ -2,7 +2,9 @@
 include 'view/overall/header.php';
 include 'view/overall/nav.php';
 
-if($gestor !="" || $fecha1 !="" || $fecha2!=""){?>
+if($gestor !="" || $fecha1 !="" || $fecha2!=""){
+  
+  ?>
 <div class ="row filtros" >
   <div class="col-xs-1 col-md-4"></div>
 <? echo "Filtors aplicados:&nbsp;</br>"; ?>
@@ -11,7 +13,9 @@ if($gestor !="" || $fecha1 !="" || $fecha2!=""){?>
 <? echo $fecha2."&nbsp;";?>
 </div>
 <div>
- <?php }?>
+ <?php }
+ 
+ ?>
 
 <div class ="row filtros">
   <div class="col-xs-1 col-md-1"></div>
@@ -64,7 +68,7 @@ if($gestor !="" || $fecha1 !="" || $fecha2!=""){?>
       <th>Acceso</th>
       <th>Orange Trainer</th>
       <th>Env. Doc.</th>
-      <th>Rcb Doc.</th>
+      <th>Rcb. Doc.</th>
     </tr>
   </thead>
   <tbody>
