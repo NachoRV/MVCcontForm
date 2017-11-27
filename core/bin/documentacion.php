@@ -41,8 +41,8 @@ if ($listados == "Listados"){
     or die ("Error en la consulta");
     $curso = $resultado_sel->fetch_assoc();
 
-    $plantilla = "lista.xlsx"; 
-    } else if ($dias['sesiones']==1 && $numPrat['numPart'] >25 && $numPrat['numPart'] <50){
+    
+    } else if ($dias['sesiones']==2 && $numPrat['numPart'] >25 && $numPrat['numPart'] <50){
 
         $plantilla = "lista2.xlsx"; 
         $sql  = "SELECT `ID_USUARIO`, `DNI`, `Nombre`, `Accion`, `Grupo`,  `localizador`, `Titulo_curso`, `Fecha_inicio`, `Fecha_fin`,   `Proveedor`, `Aula`FROM `sesion` WHERE `localizador` = '$conv'";
@@ -72,14 +72,25 @@ if ($listados == "Listados"){
     $objPHPExcel->getActiveSheet()->SetCellValue('B19', "SESIÓN Nº: ".$dias['sesiones']. " de ".$dias['sesiones']." FECHA: ".date_format($date1,'d-m-Y')." HORARIO: ". date_format($date1,'h:i'). " - ".date_format($date2,'h:i'));
 
     $linea= 28;
+    $linea1= 28;
 
     //Escribimos los articipantes
     while ($row = $resultado_sel->fetch_array()){
-    //Escribo
-    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linea, $row['ID_USUARIO']);
-    $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linea, $row['Nombre']);
-    $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linea, $row['DNI']);
-    $linea= $linea+1;
+        if ($linea<=52){
+            //Escribo
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linea, $row['ID_USUARIO']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linea, $row['Nombre']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linea, $row['DNI']);
+          
+        }else if($linea>53){
+         
+            $objPHPExcel->setActiveSheetIndex(1);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linea1, $row['ID_USUARIO']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linea1, $row['Nombre']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linea1, $row['DNI']);
+            $linea1 = $linea1+1 ;
+        }
+        $linea= $linea+1;
     }
 
     $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
@@ -88,6 +99,6 @@ if ($listados == "Listados"){
 }
 
 
-}
+
 
 ?>
