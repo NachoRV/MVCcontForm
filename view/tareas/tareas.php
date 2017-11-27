@@ -85,6 +85,7 @@ if($gestor !="" || $fecha1 !="" || $fecha2!=""){
  <tr>
    <td><a href="?view=actualizar&conv=<?= $row['localizador']?>"/><?= $row['localizador']?></td>
    <td><?= $row['Titulo del curso']?></td>
+   <td><a href="?view=documentacion&conv=<?= $row['localizador']?>"/>Imprimir Doc</td>
    <td><?= date_format($date1,'d-m-Y')?></td>
    <td><?= date_format($date2,'d-m-Y')?></td>
    <td><?= $row['Gestor_de_formacion']?></td>

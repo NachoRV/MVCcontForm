@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `sesion`
 --
 
-REATE TABLE `sesion` (
+CREATE TABLE `sesion` (
   `ID_USUARIO` varchar(30) NOT NULL,
   `DNI` varchar(10) NOT NULL,
   `Nombre` varchar(100) NOT NULL,

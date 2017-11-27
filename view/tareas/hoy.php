@@ -46,10 +46,10 @@ include 'view/overall/nav.php';
  <tr>
    <td><a href="?view=actualizar&conv=<?= $row['localizador']?>"/><?= $row['localizador']?></td>
    <td><?= $row['Titulo_curso']?></td>
-   <td><?= date_format($date1,'d-m-Y h:i')?></td>
+   <td><?= date_format($date1,'d-m-Y')?></td>
    <td><?= date_format($date1,'h:i')?> -    <?= date_format($date2,'h:i')?></td>
    <td><?= $row['Gestor']?></td>
-   <td><?= $row['Aula`']?></td> 
+   <td><?= $row['Aula']?></td> 
    <td><?= $row['Proveedor']?></td>
    <td><?= $row['Creado']?></td>
  </tr>
