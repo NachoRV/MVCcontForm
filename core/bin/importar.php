@@ -68,9 +68,9 @@ if ($action == 'upload'){
       /*** TRANSFORMA LAS FECHAS DE EXCEL A php****/
 
       $timestamp2 = PHPExcel_Shared_Date::ExcelToPHP($fechaInicio);
-      $fecha_php = date("Y-m-d",$timestamp2);
+      $fecha_php = date("Y-m-d H:i",$timestamp2);
       $timestamp1 = PHPExcel_Shared_Date::ExcelToPHP($fechafin);
-      $fecha_php1 = date("Y-m-d",$timestamp1);
+      $fecha_php1 = date("Y-m-d H:i",$timestamp1);
 
 
       $gestor = $objPHPExcel->getActiveSheet()->getCell('E'.$i)->getCalculatedValue();

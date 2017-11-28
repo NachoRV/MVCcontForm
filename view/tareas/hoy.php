@@ -18,7 +18,7 @@ include 'view/overall/nav.php';
  <div class="col-xs-1 col-md-2"></div>
 </div>
 <div class="row">
-<<div class="col-xs-12 col-md-12    ">
+<<div class="col-xs-12 col-md-12">
  <table class="table table-striped">
   <thead>
     <tr>
@@ -44,7 +44,7 @@ include 'view/overall/nav.php';
  ?>
 
  <tr>
-   <td><a href="?view=actualizar&conv=<?= $row['localizador']?>"/><?= $row['localizador']?></td>
+   <td><a href="?view=documentacion&conv=<?= $row['localizador']?>"/><?= $row['localizador']?></td>
    <td><?= $row['Titulo_curso']?></td>
    <td><?= date_format($date1,'d-m-Y')?></td>
    <td><?= date_format($date1,'h:i')?> -    <?= date_format($date2,'h:i')?></td>

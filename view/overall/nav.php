@@ -1,10 +1,8 @@
   <body>
     <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-
-        <a class="nav navbar-brand" href="/MVCcontForm">
-          <img src="public/img/logo.jpg" width="50" height="40" alt="">
+  <nav class="navbar navbar-expand-lg nav fixed-top" id="nav-nacho">
+        <a class="navbar-brand" href="/MVCcontForm">
+          <img src="public/img/logo.jpg" width="150" height="50" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -14,18 +12,18 @@
 
           <ul class="navbar-nav ml-auto">
             <li class="nav-item ">
-              <a class="" href="/"> Home&nbsp;&nbsp;
+              <a class="nav-a" href="/"> Home&nbsp;&nbsp;
                 <b class="caret"></b>
               </a>
             </li>
             <li class="nav-item ">
-              <a class="" href="?view=documentacion"> Documentacion&nbsp;&nbsp;
+              <a class="nav-a" href="?view=documentacion"> Documentacion&nbsp;&nbsp;
                 <b class="caret"></b>
               </a>
             </li>
 
             <li class="dropdown">
-             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Convocatoria<span class="caret"></span></a>
+             <a class="dropdown-toggle nav-a" data-toggle="dropdown" href="#">Convocatoria<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <!--<li><a  href="?view=importar">Importar</a></li>-->
               <li><a  href="?view=hoy">Hoy</a></li>
@@ -33,10 +31,10 @@
             </ul>
           </li>
           <li class="dropdown">
-             <a class="dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;Importar<span class="caret"></span></a>
+             <a class="dropdown-toggle nav-a" data-toggle="dropdown" href="#">&nbsp;Importar<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a  href="?view=importar">Importar Control de formación</a></li>
-              <li><a  href="?view=imphoy">Partes de sesion: Hoy</a></li>
+              <li><a class="nav-a" href="?view=importar">Importar Control de formación</a></li>
+              <li><a class="nav-a" href="?view=imphoy">Partes de sesion: Hoy</a></li>
             </ul>
           </li>
 
