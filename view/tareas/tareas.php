@@ -55,7 +55,7 @@ if($gestor !="" || $fecha1 !="" || $fecha2!=""){
  <table class="table table-striped">
   <thead>
     <tr>
-      <th>Sesión</th>
+      <th>Localizador</th>
       <th>Título</th>
       <th>Imprimr Doc</th>
       <th>Fch. Inicio</th>
@@ -63,7 +63,6 @@ if($gestor !="" || $fecha1 !="" || $fecha2!=""){
       <th>Gestor</th>
       <th>lugar</th>
       <th>Proveedor</th>
-
       <th>Bonificado</th>
       <th>Pet. Monta</th>
       <th>Acceso</th>

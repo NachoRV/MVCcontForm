@@ -5,8 +5,8 @@ include 'view/overall/nav.php'; ?>
     <!-- Page Content -->
     <div class="container">
       <div class="containerindex">
-      <h1 class="mt-5">Control de formacion</h1>
-      <p>Aplicacion para el apoyo a las tareas logisticas de la formación</p>
+      <h1 class="mt-5">Control de formación</h1>
+      <p>Aplicación para el apoyo a las tareas logísticas de la formación</p>
     </div>
     </div>
     <!-- /.container -->
