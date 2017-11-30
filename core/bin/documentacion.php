@@ -1,6 +1,13 @@
 <?php 
 require 'vendor/PHPExcel/Classes/PHPExcel/IOFactory.php';
 
+include_once 'vendor/autoload.php';
+
+
+use PhpOffice\PhpWord\TemplateProcessor;
+
+// include 'core/funciones/cartel.php';
+
 $listados = $_POST['listado'];
 $cartel= $_POST['cartel'];
 $conv = $_GET['conv'];
@@ -36,7 +43,11 @@ echo $numPrat['numPart'];
  $resultado = $con->query($sql)
  or die ("Error en la consulta");
  $convocatoria = $resultado ->fetch_assoc();
+ $titulo = $convocatoria['Titulo del curso'];
+ $AF = 0;
+ $G = 0;
  
+ echo $titulo;
 
 if ($listados == "Listados"){
 
@@ -132,6 +143,7 @@ if ($listados == "Listados"){
     $linea3= 28;
 
     //Escribimos los articipantes
+    
     while ($row = $resultado_sel->fetch_array()){
         if ($linea<=52){
             //Escribo
@@ -171,6 +183,27 @@ if ($listados == "Listados"){
     $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
     $objWriter->save("Listado_de_asistencia.xlsx");
 
+}
+
+/**
+ * Generamos el cartel del curso
+ */
+if($cartel == "cartel"){
+
+    
+    $templateProcessor = new TemplateProcessor("plantillas/CartelAula.docx");
+
+
+    $TituloDelCurso = $titulo;
+    $Accion = $AF;
+    $grupo = $G;
+
+    $templateProcessor->setValue('TituloDelCurso',$TituloDelCurso);
+    $templateProcessor->setValue('AF',$Accion);
+    $templateProcessor->setValue('G',$grupo);
+    
+
+   $templateProcessor->saveAs('cartel.docx');
 }
 
 ?>

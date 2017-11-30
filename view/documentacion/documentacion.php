@@ -19,12 +19,12 @@ include 'view/overall/nav.php';
                 Listados
                 </label>
             </div>
-            <!--<div class="form-check">
+            <div class="form-check">
                 <label class="form-check-label">
                 <input name='cartel' type="checkbox" class="form-check-input" value="cartel">
                 Cartel
                 </label>
-            </div>-->
+            </div> 
             <button name='generar' type="submit" class="btn btn-primary">Submit</button>
         </form>
             </div>
@@ -38,7 +38,7 @@ include 'view/overall/nav.php';
                     if(isset ($_POST['listado'])){
 
                         echo "<a href= 'Listado_de_asistencia.xlsx'/>Pulsa para descargar el listado<a></br>";
-                        echo "<a href= 'Cartel.docx'/>Pulsa para descargar el cartel del aula<a></br>";
+                        echo "<a href= 'cartel.docx'/>Pulsa para descargar el cartel del aula<a></br>";
                     }
                 ?>
             </div>
