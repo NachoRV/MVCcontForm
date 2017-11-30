@@ -1,19 +1,17 @@
   <body>
     <!-- Navigation -->
-   <nav class="navbar navbar-expand-md  navbar-dark fixed-top" id="nav-nacho">
-  <!-- Brand -->
-        <a class="navbar-brand" href="/">
+  <nav class="navbar navbar-expand-lg nav fixed-top navbar-inverse" id="nav-nacho">
+  <div class="container-fluid">
+        <a class="navbar-brand" href="/MVCcontForm">
           <img src="public/img/logo.jpg" width="150" height="50" alt="">
         </a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
 
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    
+
 
           <ul class="nav navbar-nav ml-auto">
             <li class="nav-item ">
@@ -47,5 +45,6 @@
               <a class="nav-link" href="#">Contact</a>
             </li>-->
           </ul>
-  </div>
-</nav> 
+        </div>
+      </div>
+    </nav>

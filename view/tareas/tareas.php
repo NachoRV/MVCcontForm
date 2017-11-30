@@ -8,9 +8,12 @@ if($gestor !="" || $fecha1 !="" || $fecha2!=""){
 <div class ="row filtros" >
   <div class="col-xs-1 col-md-4"></div>
 <? echo "Filtors aplicados:&nbsp;</br>"; ?>
-<? echo $gestor."&nbsp;";?>
-<? echo $fecha1."&nbsp;";?>
-<? echo $fecha2."&nbsp;";?>
+<? echo "Gestor: ".$gestor."&nbsp;";?>
+<?php
+  
+  $date2  = date_create($fecha1);
+  echo "Fechas: ".date_format($date2,'d-m-Y')."&nbsp;";?>
+
 </div>
 <div>
  <?php }
