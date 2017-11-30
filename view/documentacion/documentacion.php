@@ -37,25 +37,7 @@ include 'view/overall/nav.php';
             </select>
        </div>
 
-            <!--
-            <div class="form-check">
-                <label class="form-check-label">
-                <input name='CorreoBonificadoExterno' type="checkbox" class="form-check-input" value="CorreoBonificadoExterno">
-                Correo Bonificado Externo
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                <input name='CorreoBonificadoExterno' type="checkbox" class="form-check-input" value="CorreoBonificadonIterno">
-                Correo Bonificado Interno
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                <input name='CorreoBonificadoExterno' type="checkbox" class="form-check-input" value="CorreoBonificadoExterno">
-                Correo Externo No Bonificado
-                </label>
-            </div>-->
+      
             <button name='generar' type="submit" class="btn btn-primary">Submit</button>
         </form>
             </div>
@@ -69,7 +51,15 @@ include 'view/overall/nav.php';
                     if(isset ($_POST['listado'])){
 
                         echo "<a href= 'Listado_de_asistencia.xlsx'/>Pulsa para descargar el listado<a></br>";
-                        echo "<a href= 'cartel.docx'/>Pulsa para descargar el cartel del aula<a></br>";
+                  
+                    }
+                    if(isset ($_POST['cartel'])){
+
+                       echo "<a href= 'cartel.docx'/>Pulsa para descargar el cartel del aula<a></br>";
+                        
+                    }
+                      if(isset ($_POST['Correo'])){
+
                         echo "<a href= 'correo.docx'/>Pulsa para descargar el correo</br>";
                     }
                 ?>

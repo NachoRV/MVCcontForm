@@ -259,7 +259,9 @@ if($correo != ""){
     $templateProcessor->setValue('horario',$horario);
     $templateProcessor->setValue('aula',$aula);
 
-   $templateProcessor->saveAs('correo.docx');
+     $templateProcessor->saveAs('correo.docx');
+     
+    
 }
 
 ?>

@@ -35,7 +35,7 @@ include 'view/overall/nav.php';
   <tbody>
 
     <?php
-    while ($row = $resultado_sel->fetch_array()){
+    while ($row = $resultado_selhoy->fetch_array()){
 
       $fecha1=  $row['Fecha_inicio'];
       $date1  = date_create($fecha1);
