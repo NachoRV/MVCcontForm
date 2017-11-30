@@ -6,10 +6,13 @@ $fecha = $_POST['fecha'];
 $fecha1 = $fecha." 24:00:00";
 
 
-if(isset($_POST['fecha'])){
+if(!isset($_POST['fecha'])){
 
- $fecha= date("Y-m-d H:i:s");
+    
+
+ $fecha= date("Y-m-d");
  $fecha1 = $fecha." 23:00:00";
+ 
 
 }
 
