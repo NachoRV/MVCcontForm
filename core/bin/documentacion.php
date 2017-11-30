@@ -11,10 +11,12 @@ use PhpOffice\PhpWord\TemplateProcessor;
 $listados = $_POST['listado'];
 $cartel= $_POST['cartel'];
 $conv = $_GET['conv'];
+$correo = $_POST['Correo'];
 
 echo $listados."</br>";
 echo $cartel."</br>";
 echo $conv. "</br>";
+echo $correo. "</br>";
 // creamos la conexión con la BBDD
 
 $con = new Conexion();
@@ -43,18 +45,38 @@ echo $numPrat['numPart'];
  $resultado = $con->query($sql)
  or die ("Error en la consulta");
  $convocatoria = $resultado ->fetch_assoc();
+
+ $sql  = "SELECT DISTINCT (`ID_USUARIO`), `DNI`, `Nombre`, `Accion`, `Grupo`,  `localizador`, `Titulo_curso`,`Proveedor`, `Aula`FROM `sesion` WHERE `localizador` = '$conv'";
+ $resultado_sel = $con->query($sql)
+or die ("Error en la consulta");
+$curso = $resultado_sel->fetch_assoc();
+
  $titulo = $convocatoria['Titulo del curso'];
- $AF = 0;
- $G = 0;
- 
+ $AF = $curso['Accion'];
+ $G = $curso['Grupo'];
+
+    $fecha1= $convocatoria['Fecha de inicio'];;
+    $date1  = date_create($fecha1);
+    $fecha2= $convocatoria['Fecha fin'];
+    $date2  = date_create($fecha2);
+    $fechaInicio = date_format($date1,'d-m-Y');
+    $fechaFin = date_format($date2,'d-m-Y');
+    $horario = date_format($date1,'h:i'). " - ".date_format($date2,'h:i');
+    $aula = $curso['Aula'];
+
  echo $titulo;
+
+  /* $sql  = "SELECT DISTINCT (`ID_USUARIO`), `DNI`, `Nombre`, `Accion`, `Grupo`,  `localizador`, `Titulo_curso`,`Proveedor`, `Aula`FROM `sesion` WHERE `localizador` = '$conv'";
+    $resultado_sel = $con->query($sql)
+    or die ("Error en la consulta");
+    $curso = $resultado_sel->fetch_assoc();*/
 
 if ($listados == "Listados"){
 
-    $sql  = "SELECT DISTINCT (`ID_USUARIO`), `DNI`, `Nombre`, `Accion`, `Grupo`,  `localizador`, `Titulo_curso`,`Proveedor`, `Aula`FROM `sesion` WHERE `localizador` = '$conv'";
+    /*$sql  = "SELECT DISTINCT (`ID_USUARIO`), `DNI`, `Nombre`, `Accion`, `Grupo`,  `localizador`, `Titulo_curso`,`Proveedor`, `Aula`FROM `sesion` WHERE `localizador` = '$conv'";
     $resultado_sel = $con->query($sql)
     or die ("Error en la consulta");
-    $curso = $resultado_sel->fetch_assoc();
+    $curso = $resultado_sel->fetch_assoc();*/
 
     if($numPrat['numPart'] <= 25){
 
@@ -79,10 +101,10 @@ if ($listados == "Listados"){
 
     // formateo las fechas
 
-      $fecha1= $convocatoria['Fecha de inicio'];;
+     /* $fecha1= $convocatoria['Fecha de inicio'];;
       $date1  = date_create($fecha1);
       $fecha2= $convocatoria['Fecha fin'];
-      $date2  = date_create($fecha2);
+      $date2  = date_create($fecha2);*/
 
 
     //Indicamos que se pare en la hoja uno del libro
@@ -204,6 +226,40 @@ if($cartel == "cartel"){
     
 
    $templateProcessor->saveAs('cartel.docx');
+}
+
+if($correo != ""){
+
+    if($correo == "CorreoBonificadoExterno"){
+
+        $plantillaCorreo = "CorreoBonificadoExterno.docx";
+
+    }else if($correo == "CorreoBonificadoInterno"){
+
+              $plantillaCorreo = "CorreoBonificadoInterno.docx";
+
+    }else if($correo == "CorreoExterno"){
+
+              $plantillaCorreo = "CorreoExterno.docx";
+
+    }else if($correo == "CorreoInterno"){
+
+              $plantillaCorreo = "CorreoInterno.docx";
+    }
+    
+    $templateProcessor = new TemplateProcessor("plantillas/".$plantillaCorreo);
+
+
+    $TituloDelCurso = $titulo;
+  
+
+    $templateProcessor->setValue('titulo',$TituloDelCurso);
+    $templateProcessor->setValue('fechasInicio',$fechaInicio);
+    $templateProcessor->setValue('fechasFin',$fechaFin);
+    $templateProcessor->setValue('horario',$horario);
+    $templateProcessor->setValue('aula',$aula);
+
+   $templateProcessor->saveAs('correo.docx');
 }
 
 ?>

@@ -25,6 +25,37 @@ include 'view/overall/nav.php';
                 Cartel
                 </label>
             </div> 
+
+        <div class="form-group">
+         <label class="" form="loc">Correo: &nbsp;</label>
+            <select name="Correo">
+                <option value="">Selecciona un tipo de correo</option>
+                <option value="CorreoBonificadoExterno">Correo Externo Bonificado</option>
+                <option value="CorreoBonificadoInterno">Correo Interno Bonificado</option>
+                <option value="CorreoExterno">Correo Externo NO Bonificado</option>
+                <option value="CorreoInterno">Correo Interno NO Bonificado</option>
+            </select>
+       </div>
+
+            <!--
+            <div class="form-check">
+                <label class="form-check-label">
+                <input name='CorreoBonificadoExterno' type="checkbox" class="form-check-input" value="CorreoBonificadoExterno">
+                Correo Bonificado Externo
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                <input name='CorreoBonificadoExterno' type="checkbox" class="form-check-input" value="CorreoBonificadonIterno">
+                Correo Bonificado Interno
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                <input name='CorreoBonificadoExterno' type="checkbox" class="form-check-input" value="CorreoBonificadoExterno">
+                Correo Externo No Bonificado
+                </label>
+            </div>-->
             <button name='generar' type="submit" class="btn btn-primary">Submit</button>
         </form>
             </div>
@@ -39,6 +70,7 @@ include 'view/overall/nav.php';
 
                         echo "<a href= 'Listado_de_asistencia.xlsx'/>Pulsa para descargar el listado<a></br>";
                         echo "<a href= 'cartel.docx'/>Pulsa para descargar el cartel del aula<a></br>";
+                        echo "<a href= 'correo.docx'/>Pulsa para descargar el correo</br>";
                     }
                 ?>
             </div>
