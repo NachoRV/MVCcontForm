@@ -13,10 +13,7 @@ $cartel= $_POST['cartel'];
 $conv = $_GET['conv'];
 $correo = $_POST['Correo'];
 
-echo $listados."</br>";
-echo $cartel."</br>";
-echo $conv. "</br>";
-echo $correo. "</br>";
+
 // creamos la conexión con la BBDD
 
 $con = new Conexion();
@@ -35,7 +32,7 @@ $sql  = "SELECT COUNT( DISTINCT `ID_USUARIO`) as  'numPart' FROM `sesion` WHERE 
 $participantes = $con->query($sql)
 or die ("Error en la consulta");
 $numPrat = $participantes->fetch_assoc();
-echo $numPrat['numPart'];
+
 
 /** 
  * selecciono los datos de la convocatoria
@@ -64,7 +61,7 @@ $curso = $resultado_sel->fetch_assoc();
     $horario = date_format($date1,'h:i'). " - ".date_format($date2,'h:i');
     $aula = $curso['Aula'];
 
- echo $titulo;
+
 
   /* $sql  = "SELECT DISTINCT (`ID_USUARIO`), `DNI`, `Nombre`, `Accion`, `Grupo`,  `localizador`, `Titulo_curso`,`Proveedor`, `Aula`FROM `sesion` WHERE `localizador` = '$conv'";
     $resultado_sel = $con->query($sql)

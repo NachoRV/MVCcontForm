@@ -67,3 +67,13 @@ background-color: black;
 text-align: center;
 color: white;
 }
+/****GENERALES****/
+.center{
+
+  text-align: center;
+}
+.margen{
+ 
+  margin: 25px;
+
+}
