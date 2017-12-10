@@ -87,7 +87,7 @@ if ($action == 'upload'){
       $Creado   = $objPHPExcel->getActiveSheet()->getCell('Y'.$i)->getCalculatedValue();
 
       /*** TRANSFORMA LAS FECHAS DE EXCEL A php ****/
-
+      
       $timestamp2 = PHPExcel_Shared_Date::ExcelToPHP($Fecha_inicio);
       $fecha_php = date("Y-m-d H:i",$timestamp2);
       $timestamp1 = PHPExcel_Shared_Date::ExcelToPHP($Fecha_fin);
@@ -98,7 +98,7 @@ if ($action == 'upload'){
       $Titulo_curso = str_replace("'"," ",$Titulo_curso);
       $Aula = str_replace("'"," ",$Aula);
 
-
+    
       $sql = "INSERT INTO  `sesion`(`ID_USUARIO`, `DNI`, `Nombre`, `Correo`, `Sociedad`, `Bonificable`, `Accion`, `Grupo`, `Id_formación`, `localizador`, `Imparticion`, `Tipo_Formacion`, `Titulo_curso`, `Objetivo`, `Fecha_inicio`, `Fecha_fin`, `Horas_sesion`, `Duracion_formacion`, `Horas_formacion`, `Proveedor`, `Estado_expedient`, `Ciudad`, `Aula`, `Gestor`, `Creado`) 
       VALUES ('$ID_USUARIO','$DNI','$Nombre','$Correo','$Sociedad','$Bonificable','$Accion','$Grupo','$Id_formación','$localizador','$Imparticion','$Tipo_Formacion','$Titulo_curso','$Objetivo','$fecha_php','$fecha_php1','$Horas_sesion','$Duracion_formacion','$Horas_formacion','$Proveedor','$Estado_expedient','$Ciudad','$Aula','$Gestor','$Creado')";
      

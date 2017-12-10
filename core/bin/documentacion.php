@@ -58,7 +58,7 @@ $curso = $resultado_sel->fetch_assoc();
     $date2  = date_create($fecha2);
     $fechaInicio = date_format($date1,'d-m-Y');
     $fechaFin = date_format($date2,'d-m-Y');
-    $horario = date_format($date1,'h:i'). " - ".date_format($date2,'h:i');
+    $horario = date_format($date1,'hh:ii'). " - ".date_format($date2,'hh:ii');
     $aula = $curso['Aula'];
 
 

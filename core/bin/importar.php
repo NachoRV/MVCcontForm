@@ -68,9 +68,9 @@ if ($action == 'upload'){
       /*** TRANSFORMA LAS FECHAS DE EXCEL A php****/
 
       $timestamp2 = PHPExcel_Shared_Date::ExcelToPHP($fechaInicio);
-      $fecha_php = date("Y-m-d H:i",$timestamp2);
+      $fecha_php = date("Y-m-d HH:ii",$timestamp2);
       $timestamp1 = PHPExcel_Shared_Date::ExcelToPHP($fechafin);
-      $fecha_php1 = date("Y-m-d H:i",$timestamp1);
+      $fecha_php1 = date("Y-m-d HH:ii",$timestamp1);
 
 
       $gestor = $objPHPExcel->getActiveSheet()->getCell('E'.$i)->getCalculatedValue();
@@ -81,7 +81,7 @@ if ($action == 'upload'){
 /**** REEMPLAZAMOS COMILLAS SIMPLES DEL TEXTO DE LOS CURSOS *****/
       $titulo = str_replace("'"," ",$titulo);
       $lugar = str_replace("'"," ",$lugar);
-
+       
       $sql = "INSERT INTO `cfpresencial`(`localizador`, `Titulo del curso`,`Fecha de inicio`,`Fecha fin`,`Gestor_de_formacion`,`Lugar de la formacion`,`Proveedor`,`Tipo de formación`)VALUES ('$localizador','$titulo','$fecha_php','$fecha_php1','$gestor','$lugar','$proveedor','$tipo')";
       //$sql = "INSERT INTO `cfpresencial`(`localizador`,`Titulo del curso`)VALUES ('$localizador','$titulo')";
       $result = $con->query($sql)

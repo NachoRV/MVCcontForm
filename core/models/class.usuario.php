@@ -1,11 +1,16 @@
 <?php
-include "class.conexion.php";
 
-$con= new Conexion();
-
+define('DB_HOST','localhost');
+define('DB_USER','root');
+define('DB_PASS','root');
+define('DB_NAME','formacion');
+require('../../core/models/class.conexion.php');
+$con = new Conexion();
 
 class Usuario{
 
+
+     
     private $Id_Usuario;
     private $nombre;
     private $apellidos;
@@ -74,8 +79,9 @@ class Usuario{
      }
 
      public function agregarUsuario(){
-
+      $con = new Conexion();
         $sql = "INSERT INTO `usuario`(Id_Usuario,nombre,apellido,correo,contrasentrasena, nivel) VALUES(DEFAULT,?,?,?,?,?)";
+        $stmt = $con->prepare($sql); 
         $stmt->bind_param("sss", $nombre, $apellido, $correo,$contrasena,$nivel);
         $nombre = $this->$nombre;
         $apellido= $this->$apellidos;
@@ -88,14 +94,19 @@ class Usuario{
 
      public function usuarioLogin($correo,$contrasena){
 
-        $sql = "SELECT `Id_Usuario`, `nombre`, `apellidos`, `correo`, `cotraseña`, `nivel` FROM `usuario` WHERE `correo` ='$correo' AND `cotraseña` ='$contrasena' ";
-        $stmt->bind_param("ss", $coreo, $contrasena);
-        $correo = $correo;
-        $contrasena = $contrasena;
+      $con = new Conexion();  
+        $sql =  'SELECT * FROM usuario WHERE correo =? AND cotraseña =?';
+        $stmt = $con->prepare($sql);     
+        $stmt->bind_param("ss", $correo1, $contrasena1);
+        
+        $correo1 = $correo;
+        $contrasena1 = $contrasena;
         $stmt->execute();
         $resultado = $stmt->get_result();
         $fila = $resultado->fetch_assoc();
-        return $fila;
+
+     
+      return $fila;
 
      }
 }
