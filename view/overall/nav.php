@@ -1,3 +1,4 @@
+<?php session_start();?>
 <body>
     <!-- Navigation -->
   <nav class="navbar navbar-expand-md  navbar-dark fixed-top" id="nav-nacho">
@@ -13,9 +14,9 @@
 
   <!-- Navbar links -->
 <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    
-
           <ul class="nav navbar-nav ml-auto">
+      
+    <?php if(($_SESSION['nivel']==1)||($_SESSION['nivel']==2)||($_SESSION['nivel']==3)){?>
             <li class="nav-item ">
               <a class="nav-a text-uppercase text-expanded" href="/"> Home&nbsp;&nbsp;
                 <b class="caret"></b>
@@ -35,6 +36,7 @@
               <li><a class="nav-a text-uppercase text-expanded" href="?view=tareas">Tareas</a></li>
             </ul>
           </li>
+           <?php if($_SESSION['nivel']==1){?>
           <li class="dropdown">
              <a class="dropdown-toggle nav-a text-uppercase text-expanded" data-toggle="dropdown" href="#">&nbsp;Importar<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -42,9 +44,16 @@
               <li><a class="nav-a text-uppercase text-expanded" href="?view=imphoy">Partes de sesion: Hoy</a></li>
             </ul>
           </li>
+          <?}?>
+            <li>
+             <a class="nav-a text-uppercase text-expanded" href="core/bin/cerrarsesion.php"> <?php echo $_SESSION['nombreUsuario'];?><a>
+            </li>
+            <?php }else{?>
+
             <li>
               <a class="nav-a text-uppercase text-expanded" data-toggle="modal" data-target="#myModal" href="#">Login</a>
             </li>
+            <?php }?>
         </ul>     
   </div>         
 </nav> 
