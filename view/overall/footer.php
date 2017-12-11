@@ -3,7 +3,9 @@
 
   <?php
 
-  echo APP_COPY;
+  echo APP_COPY; 
+  date_default_timezone_set('Europe/Paris');
+  echo "   ".date('H:i');
 
    ?>
 

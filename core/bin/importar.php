@@ -66,11 +66,13 @@ if ($action == 'upload'){
        $fechafin = $objPHPExcel->getActiveSheet()->getCell('D'.$i)->getValue();
 
       /*** TRANSFORMA LAS FECHAS DE EXCEL A php****/
-
+      
       $timestamp2 = PHPExcel_Shared_Date::ExcelToPHP($fechaInicio);
-      $fecha_php = date("Y-m-d HH:ii",$timestamp2);
+      date_default_timezone_set('Europe/Paris');
+      $fecha_php = date("Y-m-d H:i",$timestamp2);
       $timestamp1 = PHPExcel_Shared_Date::ExcelToPHP($fechafin);
-      $fecha_php1 = date("Y-m-d HH:ii",$timestamp1);
+      date_default_timezone_set('Europe/Paris');
+      $fecha_php1 = date("Y-m-d H:i",$timestamp1);
 
 
       $gestor = $objPHPExcel->getActiveSheet()->getCell('E'.$i)->getCalculatedValue();
