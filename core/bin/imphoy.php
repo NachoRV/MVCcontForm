@@ -89,10 +89,11 @@ if ($action == 'upload'){
       /*** TRANSFORMA LAS FECHAS DE EXCEL A php ****/
       
       $timestamp2 = PHPExcel_Shared_Date::ExcelToPHP($Fecha_inicio);
-      date_default_timezone_set('Europe/Paris');
+     date_default_timezone_set('UTC');
       $fecha_php = date("Y-m-d H:i",$timestamp2);
       $timestamp1 = PHPExcel_Shared_Date::ExcelToPHP($Fecha_fin);
-      date_default_timezone_set('Europe/Paris');
+     date_default_timezone_set('UTC');
+      $hora= date_default_timezone_get();
       $fecha_php1 = date("Y-m-d H:i",$timestamp1);
 
 /**** REEMPLAZAMOS COMILLAS SIMPLES DEL TEXTO DE LOS CURSOS *****/
