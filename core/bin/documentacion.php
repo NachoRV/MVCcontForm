@@ -58,7 +58,7 @@ $curso = $resultado_sel->fetch_assoc();
     $date2  = date_create($fecha2);
     $fechaInicio = date_format($date1,'d-m-Y');
     $fechaFin = date_format($date2,'d-m-Y');
-    $horario = date_format($date1,'hh:ii'). " - ".date_format($date2,'hh:ii');
+    $horario = date_format($date1,'H:ii'). " - ".date_format($date2,'H:ii');
     $aula = $curso['Aula'];
 
 
@@ -111,7 +111,7 @@ if ($listados == "Listados"){
 
     $objPHPExcel->getActiveSheet()->SetCellValue('B13', "DENOMINACIÓN DE LA ACCIÓN FORMATIVA: ". $convocatoria['Titulo del curso']." Nº CONVOCATORIA: ".$curso['localizador']);
     $objPHPExcel->getActiveSheet()->SetCellValue('B15', "Nº: ".$curso['Accion']  ." GRUPO: ".$curso['Grupo']   ." FECHA DE INICIO: ".date_format($date1,'d-m-Y') ." FECHA FIN: ".date_format($date2,'d-m-Y'));
-    $objPHPExcel->getActiveSheet()->SetCellValue('B19', "SESIÓN Nº: ___ de ".$dias." FECHA: ".date_format($date1,'d-m-Y')." HORARIO: ". date_format($date1,'h:i'). " - ".date_format($date2,'h:i'));
+    $objPHPExcel->getActiveSheet()->SetCellValue('B19', "SESIÓN Nº: ___ de ".$dias." FECHA: ".date_format($date1,'d-m-Y')." HORARIO: ". date_format($date1,'H:i'). " - ".date_format($date2,'H:i'));
 
     /**
      * escribimos las partes de sesión
@@ -149,7 +149,7 @@ if ($listados == "Listados"){
             $date3  = date_create($fecha3);
             $fecha4= $row1['Fecha_fin'];
             $date4  = date_create($fecha4);
-            $objPHPExcel->getActiveSheet()->SetCellValue($celda, date_format($date3,'d-m-Y'). " ".date_format($date3,'h:i'). " - ".date_format($date4,'h:i') );
+            $objPHPExcel->getActiveSheet()->SetCellValue($celda, date_format($date3,'d-m-Y'). " ".date_format($date3,'H:i'). " - ".date_format($date4,'H:i') );
 
                $i++;
        

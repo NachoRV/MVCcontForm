@@ -47,7 +47,7 @@ include 'view/overall/nav.php';
    <td><a href="?view=documentacion&conv=<?= $row['localizador']?>"/><?= $row['localizador']?></td>
    <td><?= $row['Titulo_curso']?></td>
    <td><?= date_format($date1,'d-m-Y')?></td>
-   <td><?= date_format($date1,'h:i')?> -    <?= date_format($date2,'h:i')?></td>
+   <td><?= date_format($date1,'H:i')?> -    <?= date_format($date2,'H:i')?></td>
    <td><?= $row['Gestor']?></td>
    <td><?= $row['Aula']?></td> 
    <td><?= $row['Proveedor']?></td>
