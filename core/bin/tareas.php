@@ -12,13 +12,13 @@ $fecha1= $_POST['fechainicio'];
 $fecha2= $_POST['fechafin'];
 
 
-
+/*
  echo "Filtors aplicados</br>";
  echo $gestor."</br>";
  echo $fecha1."</br>";
  echo $fecha2."</br></div>";
 
-
+*/
 
  
 
