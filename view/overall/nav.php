@@ -1,4 +1,13 @@
 <?php session_start();?>
+
+ <?php if(($_SESSION['nivel']==1)||($_SESSION['nivel']==2)||($_SESSION['nivel']==3)){?>
+<script>
+
+  var d = new Date();
+  d.setTime(d.getTime()+ 600000);
+  document.cookie = "username3="+ d.toUTCString();; 
+</script>
+ <?php }; ?>
 <body>
     <!-- Navigation -->
   <nav class="navbar navbar-expand-md  navbar-dark fixed-top" id="nav-nacho">
