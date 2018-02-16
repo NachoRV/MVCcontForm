@@ -4,8 +4,8 @@
 <script>
 
   var d = new Date();
-  d.setTime(d.getTime()+ 600000);
-  document.cookie = "username3="+ d.toUTCString();; 
+  d = d.setTime(d.getTime()+ 600000);
+  document.cookie = "username3="+ d; 
 </script>
  <?php }; ?>
 <body>

@@ -1,18 +1,28 @@
  
-
-   window.onload = function () {
-     killerSession();   
-     var x = getCookie("username3");
-     alert(x);
+  
+  window.onload = function () {
+  window.setInterval("killerSession()", 60000);
+ 
+     
    }
 
  function killerSession() {
-
-   setTimeout(function () {
-     alert("se cerrara la sesion...");
-   }, 30000);
-   setTimeout("window.open('core/bin/cerrarsesion.php','_top');", 30000);
-
+   
+  var x = getCookie("username3");
+  var d = new Date();
+  var fecha1 = d.setTime(d.getTime());
+  var fecha2 = x;
+   
+   var clave = getCookie("username3");
+     if (clave != ""){
+      if (fecha1 >= fecha2) {
+        //setTimeout(function () {
+          alert("se cerrara la sesion...");
+      // }, 10000);
+      delete_cookie('username3');
+      window.open('core/bin/cerrarsesion.php','_top');
+      }
+    }
  }
 
  function getCookie(cname) {
@@ -30,7 +40,9 @@
    return "";
  }
 
- 
+ var delete_cookie = function (name) {
+   document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+ };
  
  function validacion(){
 
