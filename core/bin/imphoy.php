@@ -105,8 +105,8 @@ if ($action == 'upload'){
   }
 
   // imprimimos un mensaje con el numero de filas importadas
-    echo "  <div class='alert alert-info menok'>
-    <strong>ok!</strong> SE HAN IMPORTADAO $i. registros
+    echo "  <div class='alert alert-success menok'>
+    <strong>ok!</strong> SE HAN IMPORTADAO $i registros
   </div>";
 
 }else{

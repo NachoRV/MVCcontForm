@@ -27,7 +27,7 @@ if ($action == 'upload'){
 
      if (copy($_FILES['excel']['tmp_name'],$nombreArchivo)){
 
-        echo '<span class= "menok">Archivo Cargado Con Éxito</span>';
+        //echo '<span class= "menok">Archivo Cargado Con Éxito</span>';
 
     }else{
 
@@ -95,7 +95,9 @@ if ($action == 'upload'){
      
   }
 
-    echo " <p class='menok'> SE HAN IMPORTADAO $i</br></p>";
+    echo "   <div class='alert alert-success menok'>
+    <strong>ok!</strong> SE HAN IMPORTADAO $i registros
+  </div>";
 
 }else{
     echo "<span class='menbad'>Error al importar el ficero <span>";

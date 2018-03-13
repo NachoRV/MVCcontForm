@@ -1,3 +1,7 @@
+body{
+ background-color: ghostwhite;
+}
+
 /** ESTILOS DE LA NAV */
 #nav-nacho{
 
@@ -8,18 +12,27 @@ color: black;
 
 .nav-a{
   color: black;
+  background-color: rgb(255, 102, 0);
 }
+.container{
 
-/*** ESTILOS DE LA PAGINA Inicio ****/
-.containerindex{
+	width:100%;
+	height:Auto;  
 
-  width: 100%;
-  height: 1000px;
+ /* background-image: url("../img/fondo.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;*/
+
+  
   text-align: center;
-   background-image: url("../img/fondo.png");
-   background-repeat: no-repeat;
-   background-size: cover;
-
+}
+/*** ESTILOS DE LA PAGINA Inicio ****/
+.imgindex{
+  margin-top: 20px;
+  width:150px;
+  height:150px;
 }
 
 /*** ESTILOS DE LA PAGINA IMPORTAR ****/
@@ -64,9 +77,12 @@ text-align: center;
 }
 /******FOOTER******/
 footer{
+position: fixed;
+width: 100%;
 background-color: black;
 text-align: center;
 color: white;
+bottom:0px ;
 }
 /****GENERALES****/
 .center{

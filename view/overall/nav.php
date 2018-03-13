@@ -42,18 +42,18 @@
       -->
       <li class="dropdown">
         <a class="dropdown-toggle nav-a text-uppercase text-expanded" data-toggle="dropdown" href="#">Convocatoria<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a class="nav-a text-uppercase text-expanded" href="?view=hoy">Hoy</a></li>
-          <li><a class="nav-a text-uppercase text-expanded" href="?view=tareas">Tareas</a></li>
+        <ul class="dropdown-menu nav-a">
+          <li><a class=" text-uppercase text-expanded" href="?view=hoy">Hoy</a></li>
+          <li><a class=" text-uppercase text-expanded" href="?view=tareas">Tareas</a></li>
         </ul>
       </li>
       <!-- Control de nivel para las opciones del menu-->
     <?php if($_SESSION['nivel']==1){?>
       <li class="dropdown">
         <a class="dropdown-toggle nav-a text-uppercase text-expanded" data-toggle="dropdown" href="#">&nbsp;Importar<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a class="nav-a text-uppercase text-expanded" href="?view=importar">Importar Control de formación</a></li>
-          <li><a class="nav-a text-uppercase text-expanded" href="?view=imphoy">Partes de sesion: Hoy</a></li>
+        <ul class="dropdown-menu nav-a">
+          <li><a class="text-uppercase text-expanded" href="?view=importar">Formaciones</a></li>
+          <li><a class="text-uppercase text-expanded" href="?view=imphoy">Sesiones</a></li>
         </ul>
       </li>
     <?}?>
