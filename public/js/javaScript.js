@@ -1,7 +1,7 @@
  
   
   window.onload = function () {
-  window.setInterval("killerSession()", 60000);
+    window.setInterval("killerSession()", 3600000);
  
      
    }
@@ -61,6 +61,5 @@ if(petMontaje !=""){
       }
     }
 }
-
 
 }

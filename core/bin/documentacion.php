@@ -6,20 +6,17 @@ include_once 'vendor/autoload.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
 
-// include 'core/funciones/cartel.php';
-
 $listados = $_POST['listado'];
 $cartel= $_POST['cartel'];
 $conv = $_GET['conv'];
 $correo = $_POST['Correo'];
-
 
 // creamos la conexión con la BBDD
 
 $con = new Conexion();
 
 // Consultamos el nímero de dias de la sesión 
-/* pendiente de borrado*/
+
 $sql  = "SELECT COUNT( DISTINCT `Fecha_inicio`) as  'sesiones' FROM `sesion` WHERE `localizador` = '$conv'";
 $resultado_sel = $con->query($sql)
 or die ("Error en la consulta");
@@ -61,19 +58,9 @@ $curso = $resultado_sel->fetch_assoc();
     $horario = date_format($date1,'H:ii'). " - ".date_format($date2,'H:ii');
     $aula = $curso['Aula'];
 
-
-
-  /* $sql  = "SELECT DISTINCT (`ID_USUARIO`), `DNI`, `Nombre`, `Accion`, `Grupo`,  `localizador`, `Titulo_curso`,`Proveedor`, `Aula`FROM `sesion` WHERE `localizador` = '$conv'";
-    $resultado_sel = $con->query($sql)
-    or die ("Error en la consulta");
-    $curso = $resultado_sel->fetch_assoc();*/
-
 if ($listados == "Listados"){
 
-    /*$sql  = "SELECT DISTINCT (`ID_USUARIO`), `DNI`, `Nombre`, `Accion`, `Grupo`,  `localizador`, `Titulo_curso`,`Proveedor`, `Aula`FROM `sesion` WHERE `localizador` = '$conv'";
-    $resultado_sel = $con->query($sql)
-    or die ("Error en la consulta");
-    $curso = $resultado_sel->fetch_assoc();*/
+   // seleccionamos la plantilla a utilizar
 
     if($numPrat['numPart'] <= 25){
 
@@ -95,14 +82,6 @@ if ($listados == "Listados"){
     }
     //Creo un objeto Excel 2007 CON LA PLANTILLA
     $objPHPExcel = PHPExcel_IOFactory::load("plantillas/".$plantilla);
-
-    // formateo las fechas
-
-     /* $fecha1= $convocatoria['Fecha de inicio'];;
-      $date1  = date_create($fecha1);
-      $fecha2= $convocatoria['Fecha fin'];
-      $date2  = date_create($fecha2);*/
-
 
     //Indicamos que se pare en la hoja uno del libro
     $objPHPExcel->setActiveSheetIndex(0);
@@ -161,7 +140,7 @@ if ($listados == "Listados"){
     $linea2= 28;
     $linea3= 28;
 
-    //Escribimos los articipantes
+    //Escribimos los participantes
     
     while ($row = $resultado_sel->fetch_array()){
         if ($linea<=52){

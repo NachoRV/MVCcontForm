@@ -1,34 +1,34 @@
 <?php
-
+// Importamos la libreria para manejar elexcel 
 require 'vendor/PHPExcel/Classes/PHPExcel/IOFactory.php';
-
+// establecemos la conexion
 $con = new Conexion();
-
+// Recuperamos el Fichero 
 extract($_POST);
 
-//echo $_FILES['excel']['tmp_name'];/* SACA LA RUTA TEMPORAL DEL FICHERO CARGADO */
-
 if ($action == 'upload'){
-
-    //cargamos el archivo al servidor con el mismo nombre
-
+    //cargamos el archivo al servidor y modificamos el nombre
 
     $nombreArchivo = $_FILES['excel']['name']; //RECOJEMOS EL NOMBRE DEL ARCHIVO
-
     $tipo = $_FILES['excel']['type'];//RECOJEMOS EL TIPO
 
+    // obtenemos la extension del archivo 
+    $info = new SplFileInfo($nombreArchivo);
+    $tipo2 = $info->getExtension();  
+
+    // Renombramos el fichero para guardarlo en el servidor, se ira sobreescribiendo con cada carga.    
+    $nombreArchivo ="Sesiones.".$tipo2;
 
     /* COPIAMOS EL ERCHIVO AL servidor */
     if (copy($_FILES['excel']['tmp_name'],$nombreArchivo)){
 
-        echo '<span class= "menok">Archivo Cargado Con Éxito</span></br>';
+       // echo '<span class= "menok">Archivo Cargado Con Éxito</span></br>';
 
     }else{
 
         echo 'Error Al Cargar el Archivo';
 
     } 
-
 
  //cargamos el documento EN EL OBJETO $objPHPExcel
 
@@ -44,21 +44,15 @@ if ($action == 'upload'){
 
     $numRows = $objPHPExcel->setActiveSheetIndex(0)->getHighestRow();
 
-
     //extraer la informacion
-
-    //  echo "</br>'.$numRows'";
-
-    //extraer la informacion
-
+    // borramos la tabla para de la base de datos ya que la importacion sera siempre completa
     $sql1  = 'DELETE FROM `sesion`';
     $result1 = $con->query($sql1)
     or die ("error al borrar los  registros");
-    
-
+    // Recorremos el excel recuperando los valores y los vamos insertando en la base de datos
     for($i = 2;$i<=$numRows;$i++){
 
-       $ID_USUARIO  = $objPHPExcel->getActiveSheet()->getCell('A'.$i)->getCalculatedValue();
+        $ID_USUARIO  = $objPHPExcel->getActiveSheet()->getCell('A'.$i)->getCalculatedValue();
        $DNI = $objPHPExcel->getActiveSheet()->getCell('B'.$i)->getCalculatedValue();
        $Nombre = $objPHPExcel->getActiveSheet()->getCell('C'.$i)->getCalculatedValue();
        $Correo = $objPHPExcel->getActiveSheet()->getCell('D'.$i)->getCalculatedValue();
@@ -108,21 +102,20 @@ if ($action == 'upload'){
       $result = $con->query($sql)
       or die ("error al insertar los registros");
      
-
-      //echo "$ID_USUARIO','$DNI','$Nombre','$Correo','$Sociedad','$Bonificable','$Accion','$Grupo','$Id_formación','$localizador','$Imparticion','$Tipo_Formacion','$Titulo_curso','$Objetivo','$fecha_php','$fecha_php1','$Horas_sesion','$Duracion_formacion','$Horas_formacion','$Proveedor','$Estado_expedient','$Ciudad','$Aula','$Gestor','$Creado'</br>";
-
-
   }
 
-
-    echo " <p class='menok'> SE HAN IMPORTADAO $i</br></p>";
+  // imprimimos un mensaje con el numero de filas importadas
+    echo "  <div class='alert alert-info menok'>
+    <strong>ok!</strong> SE HAN IMPORTADAO $i. registros
+  </div>";
 
 }else{
-    echo "<span class='menbad'>importa el fichero<span>";
+    echo "<span class='menbad'>Error al importar el fichero<span>";
 }
 
 echo "</div>";
 }
+//cerramos la conexion
 $con->close();
 
  ?>

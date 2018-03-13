@@ -24,14 +24,14 @@ $acceso = trim(strtoupper($_POST["Acceso"]));
 $ot = trim(strtoupper($_POST["Orange_Trainer"]));
 $envdoc =trim(strtoupper($_POST["Envio_doc"]));
 $recdoc = trim(strtoupper($_POST["Recibuda_doc"]));
-//$accion= trim(strtoupper($_POST['accion']));
+
 
   $sql  = "SELECT COUNT(`locSesion`) AS locSesion FROM `tareas` WHERE `locSesion`= '$loc'";
   $resultado_sel = $con->query($sql)
   or die ("Error en la consulta");
   $tareasConvocatoria = $resultado_sel->fetch_assoc();
 
-  //  echo $tareasConvocatoria['locSesion'];
+  
 
   if($tareasConvocatoria['locSesion']==1){
     $accion = "UP";

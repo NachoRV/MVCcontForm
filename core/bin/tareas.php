@@ -12,15 +12,6 @@ $fecha1= $_POST['fechainicio'];
 $fecha2= $_POST['fechafin'];
 
 
-/*
- echo "Filtors aplicados</br>";
- echo $gestor."</br>";
- echo $fecha1."</br>";
- echo $fecha2."</br></div>";
-
-*/
-
- 
 
 if(!empty($_POST['gestor']) && !empty($_POST['fechainicio']) && !empty($_POST['fechafin'])){
 // BUSQUEA POR GESTOR FECHA FIN Y FECHA INICIO - ok
@@ -69,8 +60,7 @@ $sql  = "SELECT * FROM `cfpresencial` LEFT JOIN tareas ON `localizador` = tareas
   $fecha2 = $fecha1+15;
   $sql  = "SELECT * FROM `cfpresencial` LEFT JOIN tareas ON `localizador` = tareas.locSesion WHERE (`Fecha de inicio`>='$fecha1' AND `Fecha de inicio` <= '$fecha2') ORDER BY `Fecha de inicio` ASC";
 }
-//  $resultado_sel = $con->query($sql)
-//  or die ("Error en la consulta");
+
   $resultado_sel = $con->query($sql)
   or die ("Error en la consulta");
 

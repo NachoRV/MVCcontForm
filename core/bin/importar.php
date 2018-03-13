@@ -1,24 +1,28 @@
 <?php
-
+// Importamos la libreria para manejar elexcel 
 require 'vendor/PHPExcel/Classes/PHPExcel/IOFactory.php';
-
+// establecemos la conexion
 $con = new Conexion();
-
+// Recuperamos el Fichero 
 extract($_POST);
-
-//echo $_FILES['excel']['tmp_name'];/* SACA LA RUTA TEMPORAL DEL FICHERO CARGADO */
 
 if ($action == 'upload'){
 
-    //cargamos el archivo al servidor con el mismo nombre
+    //cargamos el archivo al servidor modificando el nombre
 
 
     $nombreArchivo = $_FILES['excel']['name']; //RECOJEMOS EL NOMBRE DEL ARCHIVO
 
     $tipo = $_FILES['excel']['type'];//RECOJEMOS EL TIPO
+    
+    // obtenemos la extension del archivo 
+    $info = new SplFileInfo($nombreArchivo);
+    $tipo2 = $info->getExtension();  
 
+    // Renombramos el fichero para guardarlo en el servidor, se ira sobreescribiendo con cada carga.    
+    $nombreArchivo ="Formaciones.".$tipo2;
 
-    /* COPIAMOS EL ERCHIVO AL servidor*/
+    /* COPIAMOS EL ERCHIVO AL SERVIDOR*/
     
 
      if (copy($_FILES['excel']['tmp_name'],$nombreArchivo)){
@@ -59,13 +63,13 @@ if ($action == 'upload'){
     
 
     for($i = 2;$i<=$numRows;$i++){
-
+    // Recorremos el excel recuperando los valores y los vamos insertando en la base de datos
        $localizador = $objPHPExcel->getActiveSheet()->getCell('A'.$i)->getCalculatedValue();
        $titulo = $objPHPExcel->getActiveSheet()->getCell('B'.$i)->getCalculatedValue();
        $fechaInicio = $objPHPExcel->getActiveSheet()->getCell('C'.$i)->getValue();
        $fechafin = $objPHPExcel->getActiveSheet()->getCell('D'.$i)->getValue();
 
-      /*** TRANSFORMA LAS FECHAS DE EXCEL A php****/
+      /*** TRANSFORMA LAS FECHAS DE EXCEL A PHP****/
       
       $timestamp2 = PHPExcel_Shared_Date::ExcelToPHP($fechaInicio);
       date_default_timezone_set('UTC');
@@ -89,17 +93,12 @@ if ($action == 'upload'){
       $result = $con->query($sql)
       or die ("error al insertar los registros");
      
-
-      //echo "$localizador', '$titulo', '$fecha_php', '$fecha_php1', '$gestor', '$lugar', '$proveedor', '$tipo''</br>";
-
-
   }
-
 
     echo " <p class='menok'> SE HAN IMPORTADAO $i</br></p>";
 
 }else{
-    echo "<span class='menbad'>importa el fichero<span>";
+    echo "<span class='menbad'>Error al importar el ficero <span>";
 }
 
 echo "</div>";

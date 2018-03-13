@@ -14,6 +14,5 @@ $_SESSION['apellidos'] = $datosUsuarop['apellidos'];
 $_SESSION['email'] = $datosUsuarop['correo'];
 $_SESSION['nivel'] = $datosUsuarop['nivel'];
 
-//echo $_SESSION['nombreUsuario']." - ".$_SESSION['apellidos']." - ".$_SESSION['email']." - ".$_SESSION['nivel'];
 header("Location: ../../");
 ?>
