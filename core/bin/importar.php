@@ -2,14 +2,15 @@
 // Importamos la libreria para manejar elexcel 
 require 'vendor/PHPExcel/Classes/PHPExcel/IOFactory.php';
 // establecemos la conexion
+
 $con = new Conexion();
+
 // Recuperamos el Fichero 
+
 extract($_POST);
 
 if ($action == 'upload'){
-
     //cargamos el archivo al servidor modificando el nombre
-
 
     $nombreArchivo = $_FILES['excel']['name']; //RECOJEMOS EL NOMBRE DEL ARCHIVO
 
@@ -19,23 +20,18 @@ if ($action == 'upload'){
     $info = new SplFileInfo($nombreArchivo);
     $tipo2 = $info->getExtension();  
 
-    // Renombramos el fichero para guardarlo en el servidor, se ira sobreescribiendo con cada carga.    
+    // Renombramos el fichero para guardarlo en el servidor
+    // Se ira sobreescribiendo con cada carga.    
     $nombreArchivo ="Formaciones.".$tipo2;
 
     /* COPIAMOS EL ERCHIVO AL SERVIDOR*/
-    
 
      if (copy($_FILES['excel']['tmp_name'],$nombreArchivo)){
-
         //echo '<span class= "menok">Archivo Cargado Con Éxito</span>';
-
     }else{
-
         echo 'Error Al Cargar el Archivo';
 
     }
-
-
 
  //cargamos el documento EN EL OBJETO $objPHPExcel
 
@@ -89,7 +85,6 @@ if ($action == 'upload'){
       $lugar = str_replace("'"," ",$lugar);
        
       $sql = "INSERT INTO `cfpresencial`(`localizador`, `Titulo del curso`,`Fecha de inicio`,`Fecha fin`,`Gestor_de_formacion`,`Lugar de la formacion`,`Proveedor`,`Tipo de formación`)VALUES ('$localizador','$titulo','$fecha_php','$fecha_php1','$gestor','$lugar','$proveedor','$tipo')";
-      //$sql = "INSERT INTO `cfpresencial`(`localizador`,`Titulo del curso`)VALUES ('$localizador','$titulo')";
       $result = $con->query($sql)
       or die ("error al insertar los registros");
      

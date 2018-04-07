@@ -31,8 +31,7 @@
         <a class="nav-a text-uppercase text-expanded" href="/"> Home&nbsp;&nbsp;
         <b class="caret"></b></a>
         </li>
-      <!-- Para añadir un acceso directo al menu y generar la documentacion-->
-             
+      <!-- Para añadir un acceso directo al menu y generar la documentacion-->     
       <!--
       <li class="nav-item ">
         <a class="nav-a" href="?view=documentacion"> Documentacion&nbsp;&nbsp;
@@ -57,6 +56,15 @@
         </ul>
       </li>
     <?}?>
+           <li class="dropdown">
+        <a class="dropdown-toggle nav-a text-uppercase text-expanded" data-toggle="dropdown" href="#">&nbsp;Usuario<span class="caret"></span></a>
+        <ul class="dropdown-menu nav-a">
+          <li><a class="text-uppercase text-expanded" href="?view=altusuario">Alta Usuarios</a></li>
+          <li><a class="text-uppercase text-expanded" href="?view=Buscarusuario">Buscar Usuarios</a></li>
+          <li><a class="text-uppercase text-expanded" href="?view=altusuario"> Modificar Usuarios</a></li>
+        </ul>
+      </li>
+      
       <li>
         <a class="nav-a text-uppercase text-expanded" href="core/bin/cerrarsesion.php"> <?php echo $_SESSION['nombreUsuario'];?><a>
       </li>

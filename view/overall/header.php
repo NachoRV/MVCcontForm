@@ -11,7 +11,7 @@
     <title> Control de Formación</title>
     <!-- Importacion de la libreria de jquery -->
     <script src="public/js/jquery-3.2.1.min.js"></script>
-
+    <script src="public/js/jquery.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     

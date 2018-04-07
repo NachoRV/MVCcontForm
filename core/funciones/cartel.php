@@ -6,8 +6,6 @@ function generaCartelFormacion($titulo,$AF,$G){
     //$templateWord = new \vendor\vendor\phpoffice\phpword\src\PhpWord\TemplateProcessor("../plantillas/Cartel Aula.docx");
     $templateWord = new TemplateProcessor("../plantillas/Cartel Aula.docx");
 
-
-
     $TituloDelCurso = $titulo;
     $Accion = $AF;
     $grupo = $G;

@@ -45,7 +45,7 @@
  };
  
  function validacion(){
-
+   
   var petMontaje = document.getElementById('petMontaje').value;
   
 
@@ -60,6 +60,17 @@ if(petMontaje !=""){
 
       }
     }
+  }
 }
+function validacionNivel(){
+ 
+  var contrasena = document.getElementById('contrasena').value;
+  var contrasena1 = document.getElementById('contrasena1').value;
+  
+  if (contrasena != contrasena1){
+    alert ("Las contraseñas no coinciden");
+    
+    return false;
+  }
 
 }

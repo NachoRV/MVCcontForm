@@ -3,7 +3,6 @@ require 'vendor/PHPExcel/Classes/PHPExcel/IOFactory.php';
 
 include_once 'vendor/autoload.php';
 
-
 use PhpOffice\PhpWord\TemplateProcessor;
 
 $listados = $_POST['listado'];
@@ -42,13 +41,12 @@ $numPrat = $participantes->fetch_assoc();
 
  $sql  = "SELECT DISTINCT (`ID_USUARIO`), `DNI`, `Nombre`, `Accion`, `Grupo`,  `localizador`, `Titulo_curso`,`Proveedor`, `Aula`FROM `sesion` WHERE `localizador` = '$conv'";
  $resultado_sel = $con->query($sql)
-or die ("Error en la consulta");
-$curso = $resultado_sel->fetch_assoc();
+ or die ("Error en la consulta");
+ $curso = $resultado_sel->fetch_assoc();
 
- $titulo = $convocatoria['Titulo del curso'];
- $AF = $curso['Accion'];
- $G = $curso['Grupo'];
-
+    $titulo = $convocatoria['Titulo del curso'];
+    $AF = $curso['Accion'];
+    $G = $curso['Grupo'];
     $fecha1= $convocatoria['Fecha de inicio'];;
     $date1  = date_create($fecha1);
     $fecha2= $convocatoria['Fecha fin'];
@@ -133,8 +131,7 @@ if ($listados == "Listados"){
                $i++;
        
      }
-
-
+     
     $linea= 28;
     $linea1= 28;
     $linea2= 28;
