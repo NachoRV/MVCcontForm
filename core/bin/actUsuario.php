@@ -13,11 +13,8 @@ $apellidos = $_POST['apellidos'];
 $email = $_POST['email'];
 $nivel = $_POST['nivel'];
 $contrasena = $_POST['contrasena'];
-$contrasena1 = $_POST['contrasena1'];
 
-
-
- $sql = "INSERT INTO `usuario`(`Id_Usuario`, `nombre`, `apellidos`, `correo`, `cotraseña`, `nivel`) VALUES (default,'$nombre','$apellidos','$email','$contrasena','$nivel')";
+ $sql = "UPDATE `usuario` SET `nombre`='$nombre',`apellidos`='$apellidos',`correo`='$email',`cotraseña`='$contrasena',`nivel`='$nivel'WHERE `Id_Usuario` = '$Id'";
      
       $result = $con->query($sql)
       or die ("error al insertar los registros");
@@ -25,5 +22,6 @@ $contrasena1 = $_POST['contrasena1'];
       $con->close();
 ?>
 <?php
-      header("Location: ../..?view=altusuario");
+      header("Location: ../..?view=Buscarusuario");
+?>
 ?>
