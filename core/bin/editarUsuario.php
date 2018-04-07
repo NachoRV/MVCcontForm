@@ -24,6 +24,7 @@ or die ("Error en la consulta");
 <div class="row">
 <div class="col-12">
 <form class="form-inline margenTop" method="POST" onsubmit="return validacionNivel()" action="core/bin/actUsuario.php">   
+<input type="hidden" class="" name="id" readonly="readonly" value="<?= $row['Id_Usuario']?>">
        <div class="form-group">
            <label class="" for="loc">Nombre:</label>
          <input type="text" class="form-control form-control-sm" name="nombre"  placeholder="<?= $row['nombre']?>" required value="<?= $row['nombre']?>" minlength="2" maxlength="30">
