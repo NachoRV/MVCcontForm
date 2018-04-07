@@ -24,7 +24,7 @@
               
             $contar =  $resultado_selec->num_rows;
           
-            /*
+            
             if($contar == 0){
                   echo "No se han encontrado resultados para '<b>".$b."</b>'.";
             }else{
@@ -33,6 +33,7 @@
                               <table class="table">
                               <thead>
                                     <tr>
+                                    <th>Id</th>
                                     <th>Nombre</th>
                                     <th>Apellidos</th>
                                     <th>correo</th>
@@ -49,19 +50,19 @@
                 $id = $row['Id_Usuario'];
                 
                 echo " <tr>
+                <td>".$id."</td>
                 <td>". $nombre ."</td>
                 <td>". $apellidos."</td>
                 <td>". $correo."</td>
-                <td><a href='?view=documentacion&idus='".$id."/>Editar</td>
-            </tr>";
+                </tr>";
               }
        echo " </tbody>
         </table>
     </div>";
               
         }
-      }*/
-      $out="{";  
+      }
+    /* $out="{";  
        while ($row = $resultado_selec->fetch_array()){ 
                 $nombre = $row['nombre'];
                 $correo = $row['correo'];     
@@ -78,5 +79,5 @@
       $j= json_decode($out);
         echo $j;
        
-      }
+      }*/
 ?>

@@ -12,7 +12,7 @@
            $.ajax({
                     type: "POST",
                     url: "core/bin/buscar.php",
-                    data: { get_param: 'value' },
+                    data: "b=" + consulta,
                     dataType: "html",
                    //beforeSend: function(){
                     //imagen de carga
